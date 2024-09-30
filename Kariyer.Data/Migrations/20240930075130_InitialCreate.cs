@@ -940,7 +940,7 @@ namespace Kariyer.Data.Migrations
                         column: x => x.IlanId,
                         principalTable: "Ilanlar",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Cascade); //cascade hatası
                     table.ForeignKey(
                         name: "FK_MulakatListeleri_Mulakatlar_MulakatId",
                         column: x => x.MulakatId,
@@ -958,7 +958,7 @@ namespace Kariyer.Data.Migrations
                         column: x => x.SirketId,
                         principalTable: "Sirketler",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -984,7 +984,7 @@ namespace Kariyer.Data.Migrations
                         column: x => x.SirketId,
                         principalTable: "Sirketler",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -1109,7 +1109,7 @@ namespace Kariyer.Data.Migrations
                         column: x => x.SirketId,
                         principalTable: "Sirketler",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_SirketTakipleri_Uyelikler_UyelikId",
                         column: x => x.UyelikId,
