@@ -11,7 +11,7 @@ namespace Kariyer.Entities
         public int Id { get; set; }
         public int SirketId { get; set; }
         public int IlanId { get; set; }
-        public Sirket? Sirket { get; set; }
-        public Ilan? Ilan { get; set; }
+        // public Sirket? Sirket { get; set; }
+        //public Ilan? Ilan { get; set; }
     }
 }

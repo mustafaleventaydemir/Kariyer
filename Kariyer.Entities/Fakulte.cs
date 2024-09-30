@@ -16,6 +16,6 @@ namespace Kariyer.Entities
         public string? Adi { get; set; }
         public int UniversiteId { get; set; }
         [ForeignKey("FakulteId")]
-        public ICollection<Bolum> Bolum { get; set; }
+        public ICollection<Bolum> Bolumler { get; set; }
     }
 }

@@ -33,7 +33,31 @@ namespace Kariyer.Entities
         public DateTime IlanTarihi { get; set; }
         [Display(Name = "Son Başvuru Tarihi")]
         public DateTime SonBasvuruTarihi { get; set; }
+        public int IlanDurumId { get; set; }
+        public virtual IlanDurumu? IlanDurumu { get; set; }
         [ForeignKey("IlanId")]
-        public ICollection<MulakatListe> MulakatListe { get; set; }
+        public ICollection<MulakatListe> MulakatListeleri { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<Basvuran> Basvuranlar { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<FavoriIlan> FavoriIlanlar { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IlanKayit> IlanKayitlari { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniCalismaSekli> IsIlaniCalismaSekilleri { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniCinsiyet> IsIlaniCinsiyetleri { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniDeneyimSuresi> IsIlaniDeneyimSureleri { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniSehir> IsIlaniSehirler { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniSektor> IsIlaniSektorler { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniUlke> IsIlaniUlkeler { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<IsIlaniYabanciDil> IsIlaniYabanciDiller { get; set; }
+        [ForeignKey("IlanId")]
+        public ICollection<SirketIlan> SirketIlanlari { get; set; }
     }
 }

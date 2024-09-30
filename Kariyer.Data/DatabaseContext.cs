@@ -19,7 +19,7 @@ namespace Kariyer.Data
         public DbSet<EkBilgi> EkBilgiler { get; set; }
         public DbSet<Fakulte> Fakulteler { get; set; }
         public DbSet<FavoriIlan> FavoriIlanlar { get; set; }
-        public DbSet<Hakkimda> Hakkimdas { get; set; }
+        public DbSet<Hakkimda> Hakkimda { get; set; }
         public DbSet<Hobi> Hobiler { get; set; }
         public DbSet<Ilan> Ilanlar { get; set; }
         public DbSet<IlanDurumu> IlanDurumlari { get; set; }
@@ -28,7 +28,6 @@ namespace Kariyer.Data
         public DbSet<IsIlaniCalismaSekli> IsIlaniCalismaSekilleri { get; set; }
         public DbSet<IsIlaniCinsiyet> IsIlaniCinsiyetler { get; set; }
         public DbSet<IsIlaniDeneyimSuresi> IsIlaniDeneyimSureleri { get; set; }
-        public DbSet<IsIlaniDurum> IsIlaniDurumlari { get; set; }
         public DbSet<IsIlaniMezuniyet> IsIlaniMezuniyetleri { get; set; }
         public DbSet<IsIlaniSehir> IsIlaniSehirler { get; set; }
         public DbSet<IsIlaniSektor> IsIlaniSektorler { get; set; }

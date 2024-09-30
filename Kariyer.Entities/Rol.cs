@@ -15,6 +15,6 @@ namespace Kariyer.Entities
         [Display(Name = "Rol Adı"), Required(ErrorMessage = "{0} Boş Bırakılamaz!")]
         public string RolAdi { get; set; }
         [ForeignKey("RolId")]
-        public ICollection<Uyelik> Uyelik { get; set; }
+        public ICollection<Uyelik> Uyelikler { get; set; }
     }
 }

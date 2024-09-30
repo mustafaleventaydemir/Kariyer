@@ -11,7 +11,7 @@ namespace Kariyer.Entities
         public int Id { get; set; }
         public int SektorId { get; set; }
         public int SirketId { get; set; }
-        public Sektor? Sektor { get; set; }
-        public Sirket? Sirket { get; set; }
+        //public Sektor? Sektor { get; set; }
+        // public Sirket? Sirket { get; set; }
     }
 }

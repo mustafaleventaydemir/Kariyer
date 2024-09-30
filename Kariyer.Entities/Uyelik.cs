@@ -27,12 +27,16 @@ namespace Kariyer.Entities
         public string Sifre { get; set; }
         [Display(Name = "Kullanıcı Rolü"), Required(ErrorMessage = "{0} Boş Bırakılamaz!")]
         public int RolId { get; set; }
-        public virtual Rol? Rol { get; set; }
+        //public virtual Rol? Rol { get; set; }
 
         public Guid? UserGuid { get; set; } = Guid.NewGuid();
         [ForeignKey("UyelikId")]
-        public ICollection<Ozgecmis> Ozgecmis { get; set; }
+        public ICollection<Ozgecmis> Ozgecmisler { get; set; }
         [ForeignKey("UyelikId")]
-        public ICollection<SirketTakip> SirketTakip { get; set; }
+        public ICollection<SirketTakip> SirketTakipleri { get; set; }
+        [ForeignKey("UyelikId")]
+        public ICollection<FavoriIlan> FavoriIlanlar { get; set; }
+        [ForeignKey("UyelikId")]
+        public ICollection<IlanKayit> IlanKayitlari { get; set; }
     }
 }

@@ -677,7 +677,7 @@ namespace Kariyer.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Hakkimdas",
+                name: "Hakkimda",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -692,9 +692,9 @@ namespace Kariyer.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hakkimdas", x => x.Id);
+                    table.PrimaryKey("PK_Hakkimda", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Hakkimdas_Ozgecmisler_OzgecmisId",
+                        name: "FK_Hakkimda_Ozgecmisler_OzgecmisId",
                         column: x => x.OzgecmisId,
                         principalTable: "Ozgecmisler",
                         principalColumn: "Id",
@@ -908,8 +908,7 @@ namespace Kariyer.Data.Migrations
                     Adi = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: true),
                     Puan = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),
                     Tarih = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    OzgecmizId = table.Column<int>(type: "int", nullable: false),
-                    OzgecmisId = table.Column<int>(type: "int", nullable: true)
+                    OzgecmisId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -918,7 +917,8 @@ namespace Kariyer.Data.Migrations
                         name: "FK_Sinavlar_Ozgecmisler_OzgecmisId",
                         column: x => x.OzgecmisId,
                         principalTable: "Ozgecmisler",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -940,7 +940,7 @@ namespace Kariyer.Data.Migrations
                         column: x => x.IlanId,
                         principalTable: "Ilanlar",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade); //cascade hatası
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MulakatListeleri_Mulakatlar_MulakatId",
                         column: x => x.MulakatId,
@@ -1155,7 +1155,7 @@ namespace Kariyer.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Uyelikler",
                 columns: new[] { "Id", "Adi", "Email", "KayitTarihi", "KullaniciAdi", "RolId", "Sifre", "Soyadi", "UserGuid" },
-                values: new object[] { 1, "Admin", "admin@kariyer.tc", new DateTime(2024, 9, 30, 10, 51, 29, 999, DateTimeKind.Local).AddTicks(6758), "Admin", 1, "123456", "ADMİN", new Guid("4e9eff32-4242-495a-af8f-705401f266fb") });
+                values: new object[] { 1, "Admin", "admin@kariyer.tc", new DateTime(2024, 9, 30, 11, 16, 50, 68, DateTimeKind.Local).AddTicks(6957), "Admin", 1, "123456", "ADMİN", new Guid("602b0418-9551-4a34-bab9-638b09b4a32b") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Basvuranlar_IlanId",
@@ -1203,8 +1203,8 @@ namespace Kariyer.Data.Migrations
                 column: "UyelikId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Hakkimdas_OzgecmisId",
-                table: "Hakkimdas",
+                name: "IX_Hakkimda_OzgecmisId",
+                table: "Hakkimda",
                 column: "OzgecmisId");
 
             migrationBuilder.CreateIndex(
@@ -1494,7 +1494,7 @@ namespace Kariyer.Data.Migrations
                 name: "FavoriIlanlar");
 
             migrationBuilder.DropTable(
-                name: "Hakkimdas");
+                name: "Hakkimda");
 
             migrationBuilder.DropTable(
                 name: "Hobiler");

@@ -16,7 +16,7 @@ namespace Kariyer.Entities
         [StringLength(10)]
         public string? Puan { get; set; }
         public DateTime? Tarih { get; set; }
-        public int OzgecmizId { get; set; }
+        public int OzgecmisId { get; set; }
         public virtual Ozgecmis? Ozgecmis { get; set; }
     }
 }

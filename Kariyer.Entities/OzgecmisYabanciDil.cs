@@ -19,7 +19,7 @@ namespace Kariyer.Entities
         [Display(Name = "Konuşma")]
         [StringLength(20)]
         public string? Konusma { get; set; }
-        public virtual Ozgecmis? Ozgecmis { get; set; }
-        public virtual YabanciDil? YabanciDil { get; set; }
+        //public virtual Ozgecmis? Ozgecmis { get; set; }
+        //public virtual YabanciDil? YabanciDil { get; set; }
     }
 }

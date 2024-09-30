@@ -15,6 +15,6 @@ namespace Kariyer.Entities
         [StringLength(80)]
         public string? Durum { get; set; }
         [ForeignKey("MulakatId")]
-        public ICollection<MulakatListe> MulakatListe { get; set; }
+        public ICollection<MulakatListe> MulakatListeleri { get; set; }
     }
 }

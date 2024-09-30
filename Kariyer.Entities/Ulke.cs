@@ -15,6 +15,8 @@ namespace Kariyer.Entities
         [Display(Name = "Ülke"), Required(ErrorMessage = "{0} Boş Bırakılamaz!")]
         public string Adi { get; set; }
         [ForeignKey("UlkeId")]
-        public ICollection<Ozgecmis> Ozgecmis { get; set; }
+        public ICollection<Ozgecmis> Ozgecmisler { get; set; }
+        [ForeignKey("UlkeId")]
+        public ICollection<IsIlaniUlke> IsIlaniUlkeler { get; set; }
     }
 }

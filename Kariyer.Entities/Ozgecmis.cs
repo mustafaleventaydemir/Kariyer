@@ -26,10 +26,18 @@ namespace Kariyer.Entities
         [ForeignKey("OzgecmisId")]
         public ICollection<Egitim> Egitim { get; set; } //
         [ForeignKey("OzgecmisId")]
-        public ICollection<MulakatListe> MulakatListe { get; set; }
+        public ICollection<MulakatListe> MulakatListeleri { get; set; }
         [ForeignKey("OzgecmisId")]
-        public ICollection<OzgecmisYazilimDil> ozgecmisYazilimDils { get; set; }
+        public ICollection<OzgecmisYazilimDil> OzgecmisYalizimDilleri { get; set; }
         [ForeignKey("OzgecmisId")]
-        public ICollection<OzgecmisHavuzu> ozgecmisHavuzus { get; set; }
+        public ICollection<OzgecmisHavuzu> OzgecmisHavuzlari { get; set; }
+        [ForeignKey("OzgecmisId")]
+        public ICollection<OzgecmisSehir> OzgecmisSehirler { get; set; }
+        [ForeignKey("OzgecmisId")]
+        public ICollection<Basvuran> Basvuranlar { get; set; }
+        [ForeignKey("OzgecmisId")]
+        public ICollection<OzgecmisSosyalMedya> OzgecmisSosyalMedyalar { get; set; }
+        [ForeignKey("OzgecmisId")]
+        public ICollection<OzgecmisYabanciDil> OzgecmisYabanciDiller { get; set; }
     }
 }

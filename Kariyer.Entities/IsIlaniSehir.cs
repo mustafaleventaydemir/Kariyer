@@ -10,8 +10,8 @@ namespace Kariyer.Entities
     {
         public int Id { get; set; }
         public int SehirId { get; set; }
-        public virtual Sehir? Sehir { get; set; }
+        // public virtual Sehir? Sehir { get; set; }
         public int IlanId { get; set; }
-        public virtual Ilan? Ilan { get; set; }
+        // public virtual Ilan? Ilan { get; set; }
     }
 }

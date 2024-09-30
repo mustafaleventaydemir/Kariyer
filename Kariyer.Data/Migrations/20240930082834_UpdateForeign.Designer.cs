@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kariyer.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240930075130_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240930082834_UpdateForeign")]
+    partial class UpdateForeign
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -262,7 +262,7 @@ namespace Kariyer.Data.Migrations
 
                     b.HasIndex("OzgecmisId");
 
-                    b.ToTable("Hakkimdas");
+                    b.ToTable("Hakkimda");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Hobi", b =>
@@ -1018,10 +1018,7 @@ namespace Kariyer.Data.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
-                    b.Property<int?>("OzgecmisId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OzgecmizId")
+                    b.Property<int>("OzgecmisId")
                         .HasColumnType("int");
 
                     b.Property<string>("Puan")
@@ -1300,12 +1297,12 @@ namespace Kariyer.Data.Migrations
                             Id = 1,
                             Adi = "Admin",
                             Email = "admin@kariyer.tc",
-                            KayitTarihi = new DateTime(2024, 9, 30, 10, 51, 29, 999, DateTimeKind.Local).AddTicks(6758),
+                            KayitTarihi = new DateTime(2024, 9, 30, 11, 28, 34, 201, DateTimeKind.Local).AddTicks(9504),
                             KullaniciAdi = "Admin",
                             RolId = 1,
                             Sifre = "123456",
                             Soyadi = "ADMİN",
-                            UserGuid = new Guid("4e9eff32-4242-495a-af8f-705401f266fb")
+                            UserGuid = new Guid("abf19994-b831-4f75-ac88-16c6c035518d")
                         });
                 });
 
@@ -1367,7 +1364,7 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.Bolum", b =>
                 {
                     b.HasOne("Kariyer.Entities.Fakulte", null)
-                        .WithMany("Bolum")
+                        .WithMany("Bolumler")
                         .HasForeignKey("FakulteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1376,7 +1373,7 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.Egitim", b =>
                 {
                     b.HasOne("Kariyer.Entities.Bolum", null)
-                        .WithMany("Egitim")
+                        .WithMany("Egitimler")
                         .HasForeignKey("BolumId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1402,7 +1399,7 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.Fakulte", b =>
                 {
                     b.HasOne("Kariyer.Entities.Universite", null)
-                        .WithMany("Fakulte")
+                        .WithMany("Fakulteler")
                         .HasForeignKey("UniversiteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1651,25 +1648,25 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.MulakatListe", b =>
                 {
                     b.HasOne("Kariyer.Entities.Ilan", null)
-                        .WithMany("MulakatListe")
+                        .WithMany("MulakatListeleri")
                         .HasForeignKey("IlanId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.Mulakat", null)
-                        .WithMany("MulakatListe")
+                        .WithMany("MulakatListeleri")
                         .HasForeignKey("MulakatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.Ozgecmis", null)
-                        .WithMany("MulakatListe")
+                        .WithMany("MulakatListeleri")
                         .HasForeignKey("OzgecmisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.Sirket", null)
-                        .WithMany("MulakatListe")
+                        .WithMany("MulakatListeleri")
                         .HasForeignKey("SirketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1678,17 +1675,17 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.Ozgecmis", b =>
                 {
                     b.HasOne("Kariyer.Entities.Cinsiyet", null)
-                        .WithMany("Ozgecmis")
+                        .WithMany("Ozgecmisler")
                         .HasForeignKey("CinsiyetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.Ulke", null)
-                        .WithMany("Ozgecmis")
+                        .WithMany("Ozgecmisler")
                         .HasForeignKey("UlkeId");
 
                     b.HasOne("Kariyer.Entities.Uyelik", null)
-                        .WithMany("Ozgecmis")
+                        .WithMany("Ozgecmisler")
                         .HasForeignKey("UyelikId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1697,13 +1694,13 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.OzgecmisHavuzu", b =>
                 {
                     b.HasOne("Kariyer.Entities.Ozgecmis", null)
-                        .WithMany("ozgecmisHavuzus")
+                        .WithMany("OzgecmisHavuzlari")
                         .HasForeignKey("OzgecmisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.Sirket", null)
-                        .WithMany("ozgecmisHavuzus")
+                        .WithMany("OzgecmisHavuzlari")
                         .HasForeignKey("SirketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1711,21 +1708,17 @@ namespace Kariyer.Data.Migrations
 
             modelBuilder.Entity("Kariyer.Entities.OzgecmisSehir", b =>
                 {
-                    b.HasOne("Kariyer.Entities.Ozgecmis", "Ozgecmis")
-                        .WithMany()
+                    b.HasOne("Kariyer.Entities.Ozgecmis", null)
+                        .WithMany("OzgecmisSehirler")
                         .HasForeignKey("OzgecmisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Kariyer.Entities.Sehir", "Sehir")
-                        .WithMany()
+                    b.HasOne("Kariyer.Entities.Sehir", null)
+                        .WithMany("OzgecmisSehirler")
                         .HasForeignKey("SehirId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Ozgecmis");
-
-                    b.Navigation("Sehir");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.OzgecmisSosyalMedya", b =>
@@ -1769,13 +1762,13 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.OzgecmisYazilimDil", b =>
                 {
                     b.HasOne("Kariyer.Entities.Ozgecmis", null)
-                        .WithMany("ozgecmisYazilimDils")
+                        .WithMany("OzgecmisYalizimDilleri")
                         .HasForeignKey("OzgecmisId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.YazilimDil", null)
-                        .WithMany("ozgecmisYazilimDils")
+                        .WithMany("OzgecmisYazilimDilleri")
                         .HasForeignKey("YazilimDilId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1807,7 +1800,9 @@ namespace Kariyer.Data.Migrations
                 {
                     b.HasOne("Kariyer.Entities.Ozgecmis", "Ozgecmis")
                         .WithMany()
-                        .HasForeignKey("OzgecmisId");
+                        .HasForeignKey("OzgecmisId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Ozgecmis");
                 });
@@ -1902,13 +1897,13 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.SirketTakip", b =>
                 {
                     b.HasOne("Kariyer.Entities.Sirket", null)
-                        .WithMany("sirketTakips")
+                        .WithMany("SirketTakipleri")
                         .HasForeignKey("SirketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Kariyer.Entities.Uyelik", null)
-                        .WithMany("SirketTakip")
+                        .WithMany("SirketTakipleri")
                         .HasForeignKey("UyelikId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1917,7 +1912,7 @@ namespace Kariyer.Data.Migrations
             modelBuilder.Entity("Kariyer.Entities.Uyelik", b =>
                 {
                     b.HasOne("Kariyer.Entities.Rol", "Rol")
-                        .WithMany("Uyelik")
+                        .WithMany("Uyelikler")
                         .HasForeignKey("RolId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1927,74 +1922,81 @@ namespace Kariyer.Data.Migrations
 
             modelBuilder.Entity("Kariyer.Entities.Bolum", b =>
                 {
-                    b.Navigation("Egitim");
+                    b.Navigation("Egitimler");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Cinsiyet", b =>
                 {
-                    b.Navigation("Ozgecmis");
+                    b.Navigation("Ozgecmisler");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Fakulte", b =>
                 {
-                    b.Navigation("Bolum");
+                    b.Navigation("Bolumler");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Ilan", b =>
                 {
-                    b.Navigation("MulakatListe");
+                    b.Navigation("MulakatListeleri");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Mulakat", b =>
                 {
-                    b.Navigation("MulakatListe");
+                    b.Navigation("MulakatListeleri");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Ozgecmis", b =>
                 {
                     b.Navigation("Egitim");
 
-                    b.Navigation("MulakatListe");
+                    b.Navigation("MulakatListeleri");
 
-                    b.Navigation("ozgecmisHavuzus");
+                    b.Navigation("OzgecmisHavuzlari");
 
-                    b.Navigation("ozgecmisYazilimDils");
+                    b.Navigation("OzgecmisSehirler");
+
+                    b.Navigation("OzgecmisYalizimDilleri");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Rol", b =>
                 {
-                    b.Navigation("Uyelik");
+                    b.Navigation("Uyelikler");
+                });
+
+            modelBuilder.Entity("Kariyer.Entities.Sehir", b =>
+                {
+                    b.Navigation("OzgecmisSehirler");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Sirket", b =>
                 {
-                    b.Navigation("MulakatListe");
+                    b.Navigation("MulakatListeleri");
 
-                    b.Navigation("ozgecmisHavuzus");
+                    b.Navigation("OzgecmisHavuzlari");
 
-                    b.Navigation("sirketTakips");
+                    b.Navigation("SirketTakipleri");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Ulke", b =>
                 {
-                    b.Navigation("Ozgecmis");
+                    b.Navigation("Ozgecmisler");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Universite", b =>
                 {
-                    b.Navigation("Fakulte");
+                    b.Navigation("Fakulteler");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.Uyelik", b =>
                 {
-                    b.Navigation("Ozgecmis");
+                    b.Navigation("Ozgecmisler");
 
-                    b.Navigation("SirketTakip");
+                    b.Navigation("SirketTakipleri");
                 });
 
             modelBuilder.Entity("Kariyer.Entities.YazilimDil", b =>
                 {
-                    b.Navigation("ozgecmisYazilimDils");
+                    b.Navigation("OzgecmisYazilimDilleri");
                 });
 #pragma warning restore 612, 618
         }

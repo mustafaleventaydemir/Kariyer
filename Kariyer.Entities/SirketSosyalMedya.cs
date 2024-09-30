@@ -15,8 +15,8 @@ namespace Kariyer.Entities
         [Display(Name = "Hesap Adı")]
         [StringLength(100)]
         public string? HesapAdi { get; set; }
-        public virtual SosyalMedya? SosyalMedya { get; set; }
-        public virtual Sirket? Sirket { get; set; }
+        // public virtual SosyalMedya? SosyalMedya { get; set; }
+        //public virtual Sirket? Sirket { get; set; }
 
     }
 }

@@ -28,10 +28,18 @@ namespace Kariyer.Entities
         public int UyelikId { get; set; }
         public virtual Uyelik? Uyelik { get; set; }
         [ForeignKey("SirketId")]
-        public ICollection<MulakatListe> MulakatListe { get; set; }
+        public ICollection<MulakatListe> MulakatListeleri { get; set; }
         [ForeignKey("SirketId")]
-        public ICollection<OzgecmisHavuzu> ozgecmisHavuzus { get; set; }
+        public ICollection<OzgecmisHavuzu> OzgecmisHavuzlari { get; set; }
         [ForeignKey("SirketId")]
-        public ICollection<SirketTakip> sirketTakips { get; set; }
+        public ICollection<SirketTakip> SirketTakipleri { get; set; }
+        [ForeignKey("SirketId")]
+        public ICollection<SirketIlan> SirketIlanlari { get; set; }
+        [ForeignKey("SirketId")]
+        public ICollection<SirketSehir> SirketSehirler { get; set; }
+        [ForeignKey("SirketId")]
+        public ICollection<SirketSektor> SirketSektorler { get; set; }
+        [ForeignKey("SirketId")]
+        public ICollection<SirketSosyalMedya> SirketSosyalMedyalar { get; set; }
     }
 }

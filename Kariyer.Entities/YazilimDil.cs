@@ -15,6 +15,6 @@ namespace Kariyer.Entities
         [Display(Name = "Yazılım Dili"), Required(ErrorMessage = "{0} Boş Bırakılamaz!")]
         public string Adi { get; set; }
         [ForeignKey("YazilimDilId")]
-        public ICollection<OzgecmisYazilimDil> ozgecmisYazilimDils { get; set; }
+        public ICollection<OzgecmisYazilimDil> OzgecmisYazilimDilleri { get; set; }
     }
 }
